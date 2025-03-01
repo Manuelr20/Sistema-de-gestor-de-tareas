@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Life</title>
+    <link rel="stylesheet" href="styles_principal.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .hero {
+            background-image: url('principal.jpg'); 
+            background-size: cover; 
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding : 10rem 0;
+            margin: 0; 
+            height: 100vh; 
+        }
+
+        .nav-links a:hover {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="logo">Colegio San Francisco de Asís</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="tareas.html">Tareas</a></li>                
+                    <li><a href="#perfil">Perfil</a></li>
+                    <li><button id="logout">Cerrar Sesión</button></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="hero">
+            <h1>Bienvenido a la plataforma San Francisco de Asís</h1>
+            <p>Esta es tu herramienta de estudio virtual.</p>
+        </div>
+    </header>
+    
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="#">Términos de servicio</a></li>
+                <li><a href="#">Política de privacidad</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+            <p>&copy; 2025 San Francisco de Asís</p>
+        </div>
+    </footer>
+    <script>
+
+        document.getElementById('logout').addEventListener('click', function() {
+            localStorage.removeItem('userType'); 
+            window.location.href = "index.html"; 
+        });
+    </script>
+</body>
+</html>
