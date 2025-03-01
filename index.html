@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Francisco de Asis - Portal Educativo</title>
+    <link rel="stylesheet" href="styles_login.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo-circle"></div>
+            <img src="sanfranciscoa.png" alt="Logo Colegio San Francisco de Asís">
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="form-container">
+                <form class="form" id="login-form">
+                    <h2>Iniciar Sesión</h2>
+                    <input type="email" placeholder="Correo electrónico" id="login-email" required>
+                    <input type="password" placeholder="Contraseña" id="login-password" required>
+                    <select id="user-type" required>
+                        <option value="" disabled selected>Selecciona tu rol</option>
+                        <option value="estudiante">Estudiante</option>
+                        <option value="profesor">Profesor</option>
+                    </select>
+                    <button type="submit">Iniciar Sesión</button>
+                    <p><a href="#" id="forgot-password">¿Olvidaste tu contraseña?</a></p>
+                </form>
+            </div>
+        </div>
+        <div class="background"></div>
+    </main>
+
+    <footer>
+        <p>© 2025 San Francisco de Asis - <span class="portal-text">Portal Educativo</span></p>
+    </footer>
+
+    <script>
+        const users = [
+            { email: "estudiante@example.com", password: "estudiante123", type: "estudiante" },
+            { email: "profesor@example.com", password: "profesor123", type: "profesor" }
+        ];
+    
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            const userType = document.getElementById('user-type').value;
+    
+            const user = users.find(user => user.email === email && user.password === password && user.type === userType);
+    
+            if (user) {
+                
+                localStorage.setItem('userType', user.type);
+                
+                window.location.href = "principal.html"; 
+            } else {
+                alert("Credenciales incorrectas. Por favor, intenta de nuevo.");
+            }
+        });
+    
+        document.getElementById('forgot-password').addEventListener('click', function(event) {
+            event.preventDefault();
+            alert("¡Olvidaste tu contraseña! Se enviará un enlace de restablecimiento a tu correo electrónico.");
+        });
+    </script>
+</body>
+</html>
